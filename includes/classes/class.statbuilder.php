@@ -445,6 +445,10 @@ class statbuilder
 			unset($AllyPoints);
 			$AllySQL	= substr($AllySQL, 0, -2).';';
 			$this->SaveDataIntoDB($AllySQL);
+
+			# Add duplicate quary
+			$sqldel	= 'DELETE a FROM %%STATPOINTS%% a, %%STATPOINTS%% b WHERE a.tech_rank < b.tech_rank AND a.id_owner = b.id_owner AND a.stat_type = b.stat_type;';
+			$this->SaveDataIntoDB($sqldel);
 		}
 
 		$this->SetNewRanks();
