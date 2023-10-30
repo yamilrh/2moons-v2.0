@@ -1,12 +1,36 @@
+body {
+	background:url("../../../theme/gow/img/bkd_page.jpg") no-repeat fixed center center #0d0d0d;
+	min-width: 1000px;
+}
+.title {
+	text-align: center;
+	margin: -5px -5px 5px -5px;
+	background: #28292a;
+	padding: 5px;
+	color:#fff;
+}
+.text-center {
+    text-align: center
+}
+
+.content_page_install {
+	margin: 0 auto;
+	width: 706px;
+	border: 1px solid #524d4d;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	background: rgba(0, 0, 0, 0.3);
+	padding: 5px;
+	overflow: visible;
+}
 table{
 	margin: auto;
 	width:900px;
 }
-
 body > table{
 	width:960px;
 }
-
 .yes{
 	color:lime;
 }
@@ -16,21 +40,20 @@ body > table{
 .no{
 	color:red;
 }
-
+.transparent {
+	color: gray;
+}
 #menu{
 	padding: 0 !important;
 }
-
 #content{
 	margin:0 auto;
 	width:80%;
 	padding:0;
 }
-
 span > a{
 	color: inherit;
 }
-
 .desc{
 	font-style:italic;
 	margin-top: -10px;
@@ -42,34 +65,27 @@ span > a{
 .desc > a:hover{
 	text-decoration:none;
 }
-
 #lang {
 	float:right;
 }
-
 .req{
 	width:900px;
 	border-collapse: collapse;
 	max-width:900px;
 }
-
 .req > tbody > tr > td{
 	width:50%;
 }
-
 .req > tbody > tr > td{
 	padding:0px;
 }
-
 .border > tbody > tr > td{
 	padding:3px 0px;
 }
-
 .border > tbody > tr{
 	border-bottom:1px solid #CCC;
 	height:24px;
 }
-
 #licence {
     background-color: #FFFFFF;
     color: #000000;
@@ -77,7 +93,6 @@ span > a{
     overflow: auto;
     padding: 0 10px;
 }
-
 #licence a{
     color: #000000;
 	text-decoration:underline;
@@ -85,11 +100,9 @@ span > a{
 #licence a:hover{
 	text-decoration:none;
 }
-
 .noborder {
 	border:0 none !important;
 }
-
 .fatalerror {
 	background-color:#FFEEEE;
 	border: 1px solid #CC0000;
