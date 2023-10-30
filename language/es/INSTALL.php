@@ -66,8 +66,8 @@ $LNG['reg_json_need'] = '¿JSON disponible?';
 $LNG['reg_iniset_need'] = '¿ini_set() disponible?';
 $LNG['reg_global_need'] = '¿register_globals desactivadas?';
 $LNG['reg_global_desc']			= '2Moons también trabajará, si esta opción está habilitada. Sin embargo, se recomienda por razones de seguridad, deshabilitar register_globals en la instalación de PHP, si es posible.';
-$LNG['req_php_need'] = 'Versión PHP (min. 5.2.5)';
-$LNG['req_php_need_desc']		= '<strong>Requisitos Previos</strong> — PHP es el lenguaje del lado del servidor, 2Moons está escrito en el. 2Moons Esto funciona sin ninguna limitación, la versión PHP 5.2.5 previsto.';
+$LNG['req_php_need'] = 'Versión PHP (min. 8.0.0)';
+$LNG['req_php_need_desc']		= '<strong>Requisitos Previos</strong> — PHP es el lenguaje del lado del servidor, 2Moons está escrito en el. 2Moons Esto funciona sin ninguna limitación, la versión PHP 8.0.0 previsto.';
 
 $LNG['req_ftp_head']			= 'Introduzca las credenciales de FTP';
 $LNG['req_ftp_desc']			= 'Ingrese su información de FTP para que 2Moons pueda corregir automáticamente los problemas. Alternativamente, también puede asignar manualmente permisos de escritura.';

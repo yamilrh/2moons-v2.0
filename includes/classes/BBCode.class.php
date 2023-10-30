@@ -19,6 +19,12 @@ class BBCode
 {
 	static public function parse($sText)
 	{
+
+
+		if (!isset($sText)) {
+			$sText = '';
+		}
+		
 		// Convert Windows (\r\n) to Unix (\n)
 		$sText = str_replace("\r\n", "\n", $sText);
 

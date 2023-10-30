@@ -32,6 +32,8 @@ class ResourceUpdate
 	private $PLANET			= array();
 	private $USER			= array();
 	private $Builded		= array();
+	private $Build;
+	private $Tech;
 
 	function __construct($Build = true, $Tech = true)
 	{
@@ -307,7 +309,7 @@ class ResourceUpdate
 	{
 		global $resource;
 
-		$BuildQueue 	= unserialize($this->PLANET['b_hangar_id']);
+		$BuildQueue 	= unserialize($this->PLANET['b_hangar_id'] ?? '');
 		if (!$BuildQueue) {
 			$this->PLANET['b_hangar'] = 0;
 			$this->PLANET['b_hangar_id'] = '';

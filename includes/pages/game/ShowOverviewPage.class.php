@@ -129,13 +129,10 @@ class ShowOverviewPage extends AbstractGamePage
 	{
 		global $LNG, $PLANET, $USER;
 		
-		$AdminsOnline 	= array();
-		$chatOnline 	= array();
-		$AllPlanets		= array();
-		$Moon 			= array();
-		$RefLinks		= array();
+		$AdminsOnline = $chatOnline = $AllPlanets = $Moon = $RefLinks = array();
 
-        $db = Database::get();
+
+    	$db = Database::get();
 		
 		foreach($USER['PLANETS'] as $ID => $CPLANET)
 		{		

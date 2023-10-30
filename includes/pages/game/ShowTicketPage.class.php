@@ -119,7 +119,7 @@ class ShowTicketPage extends AbstractGamePage
 	{
 		global $USER, $LNG;
 		
-		require 'includes/classes/BBCode.class.php';
+		require_once 'includes/classes/BBCode.class.php';
 
 		$db = Database::get();
 

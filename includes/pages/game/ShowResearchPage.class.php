@@ -32,7 +32,7 @@ class ShowResearchPage extends AbstractGamePage
 		if ($PLANET['b_building'] == 0)
 			return true;
 			
-		$CurrentQueue		= unserialize($PLANET['b_building_id']);
+		$CurrentQueue = unserialize($planet['b_building_id'] ?? '');
 		foreach($CurrentQueue as $ListIDArray) {
 			if($ListIDArray[0] == 6 || $ListIDArray[0] == 31)
 				return false;
@@ -214,7 +214,7 @@ class ShowResearchPage extends AbstractGamePage
 			return false;
 		}
 
-		$CurrentQueue  		= unserialize($USER['b_tech_queue']);
+		$CurrentQueue = unserialize($USER['b_tech_queue'] ?? '');
 		
 		if (!empty($CurrentQueue)) {
 			$ActualCount   	= count($CurrentQueue);

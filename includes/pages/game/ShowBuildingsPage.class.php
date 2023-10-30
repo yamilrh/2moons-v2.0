@@ -27,7 +27,7 @@ class ShowBuildingsPage extends AbstractGamePage
 	private function CancelBuildingFromQueue()
 	{
 		global $PLANET, $USER, $resource;
-		$CurrentQueue  = unserialize($PLANET['b_building_id']);
+		$CurrentQueue = unserialize($PLANET['b_building_id'] ?? '');
 		if (empty($CurrentQueue))
 		{
 			$PLANET['b_building_id']	= '';
@@ -131,7 +131,7 @@ class ShowBuildingsPage extends AbstractGamePage
 		)
 			return;
 		
-		$CurrentQueue  		= unserialize($PLANET['b_building_id']);
+		$CurrentQueue = unserialize($PLANET['b_building_id'] ?? '');
 
 				
 		if (!empty($CurrentQueue)) {

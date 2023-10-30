@@ -162,8 +162,10 @@ abstract class AbstractGamePage
 			'hasAdminAccess'	=> !empty(Session::load()->adminAccess),
 			'hasGate'			=> $PLANET[$resource[43]] > 0,
 			'username'			=> $USER['username'],
-			'previousPlanet'	=> $previousPlanet['id'],
-			'nextPlanet'		=> $nextPlanet['id'],
+			//'previousPlanet'	=> $previousPlanet['id'],
+			'previousPlanet'	=> !empty($previousPlanet['id']) ? $previousPlanet['id'] : '',
+			//'nextPlanet'		=> $nextPlanet['id'],
+			'nextPlanet'		=> !empty($nextPlanet['id']) ? $nextPlanet['id'] : '',
 		));
 	}
 

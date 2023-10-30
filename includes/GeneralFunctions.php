@@ -118,8 +118,8 @@ function locale_date_format($format, $time, $LNG = NULL)
 		global $LNG;
 	}
 	
-	$weekDay	= date('w', $time);
-	$months		= date('n', $time) - 1;
+	$weekDay	= date('w', (int) $time);
+	$months		= date('n', (int) $time) - 1;
 	
 	$format     = str_replace(array('D', 'M'), array('$D$', '$M$'), $format);
 	$format		= str_replace('$D$', addcslashes($LNG['week_day'][$weekDay], 'A..z'), $format);
@@ -140,7 +140,7 @@ function _date($format, $time = null, $toTimeZone = null, $LNG = NULL)
 		$date = new DateTime();
 		if(method_exists($date, 'setTimestamp'))
 		{	// PHP > 5.3			
-			$date->setTimestamp($time);
+			$date->setTimestamp((int)$time);
 		} else {
 			// PHP < 5.3
 			$tempDate = getdate((int) $time);
@@ -158,7 +158,7 @@ function _date($format, $time = null, $toTimeZone = null, $LNG = NULL)
 	}
 	
 	$format	= locale_date_format($format, $time, $LNG);
-	return date($format, $time);
+	return date($format, (int) $time);
 }
 
 function ValidateAddress($address) {
@@ -193,9 +193,9 @@ function pretty_time($seconds)
 	global $LNG;
 	
 	$day	= floor($seconds / 86400);
-	$hour	= floor($seconds / 3600 % 24);
-	$minute	= floor($seconds / 60 % 60);
-	$second	= floor($seconds % 60);
+	$hour	= floor((int)($seconds / 3600) % 24);
+	$minute	= floor((int)($seconds / 60) % 60);
+	$second	= floor((int) $seconds % 60);
 
 	$time  = '';
 
@@ -212,9 +212,10 @@ function pretty_time($seconds)
 
 function pretty_fly_time($seconds)
 {
-	$hour	= floor($seconds / 3600);
-	$minute	= floor($seconds / 60 % 60);
-	$second	= floor($seconds % 60);
+	$hour	= $seconds / 3600;
+	$hour = floor($hour);
+	$minute = floor($seconds / 60) % 60;
+	$second	= (int) $seconds % 60;
 
 	return sprintf('%02d:%02d:%02d', $hour, $minute, $second);
 }
@@ -261,11 +262,13 @@ function GetUserByID($userId, $GetInfo = "*")
 
 function makebr($text)
 {
-    // XHTML FIX for PHP 5.3.0
-	// Danke an Meikel
+    // XHTML FIX for PHP 8.0.0
+	// Danke an Meikel XHTML FIX for PHP 5.3.0
+	// Danter14 XHTML FIX for PHP 7.2.0
+	// YamilRH XHTML FIX for PHP 8.0.0
 	
     $BR = "<br>\n";
-    return (version_compare(PHP_VERSION, "5.3.0", ">=")) ? nl2br($text, false) : strtr($text, array("\r\n" => $BR, "\r" => $BR, "\n" => $BR)); 
+    return (version_compare(PHP_VERSION, "8.0.0", ">=")) ? nl2br($text, false) : strtr($text, array("\r\n" => $BR, "\r" => $BR, "\n" => $BR)); 
 }
 
 function CheckNoobProtec($OwnerPlayer, $TargetPlayer, $Player)
