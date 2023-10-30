@@ -44,7 +44,6 @@ class template extends Smarty
 		$this->setMergeCompiledIncludes(true);
 		$this->setCompileCheck(true);#Set false for production!
 		$this->setCacheLifetime(604800);
-		//$this->cache_lifetime = 604800;
 		$this->setCaching(Smarty::CACHING_LIFETIME_CURRENT);
 		$this->setCompileDir(is_writable(CACHE_PATH) ? CACHE_PATH : $this->getTempPath());
 		$this->setCacheDir($this->getCompileDir().'templates');
