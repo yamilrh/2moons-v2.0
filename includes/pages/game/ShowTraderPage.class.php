@@ -96,7 +96,7 @@ class ShowTraderPage extends AbstractGamePage
 		
 		$tradeResources		= array_values(array_diff(array_keys(self::$Charge[$resourceID]), array($resourceID)));
 		$tradeSum 			= 0;
-		
+
 		$sum=0;
 		
 		foreach($tradeResources as $tradeRessID)
@@ -117,6 +117,7 @@ class ShowTraderPage extends AbstractGamePage
 		
 		foreach($tradeResources as $tradeRessID)
 		{
+			
 			$tradeAmount	= max(0, round((float) $getTradeResources[$tradeRessID]));
 
 			if(empty($tradeAmount) || !isset(self::$Charge[$resourceID][$tradeRessID]))
