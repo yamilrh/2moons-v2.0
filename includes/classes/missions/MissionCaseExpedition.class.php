@@ -287,7 +287,7 @@ HTML;
 					}
 					elseif(0 < $eventSize && 10 >= $eventSize)
 					{
-						$Message    			= $LNG['sys_expe_attack_1_3_3'];
+						$Message    			= $LNG['sys_expe_attack_1_3_1'];
 						$attackFactor			= (60 + mt_rand(-6, 6)) / 100;
 						$targetFleetData[215]	= 3;
 					}
