@@ -36,12 +36,24 @@ class ShowFleetStep1Page extends AbstractGamePage
 		$mission				= HTTP::_GP('target_mission', 0);
 				
 		$Fleet		= array();
+		$fleetDit				= array();
 		$FleetRoom	= 0;
 		foreach ($reslist['fleet'] as $id => $ShipID)
 		{
 			$amount		 				= max(0, round(HTTP::_GP('ship'.$ShipID, 0.0, 0.0)));
 			
 			if ($amount < 1 || $ShipID == 212) continue;
+			$fleetDit[]	= $ShipID.','.floatToString($amount);
+			if($PLANET[$resource[$ShipID]] < $amount)
+				{
+
+					$this->printMessage($LNG['fl_own_planet_error'], array(array(
+					'label'	=> $LNG['sys_back'],
+					'url'	=> 'game.php?page=fleetTable'
+				    )));
+					return;
+				}
+
 
 			$Fleet[$ShipID]				= $amount;
 			$FleetRoom			   	   += $pricelist[$ShipID]['capacity'] * $amount;
