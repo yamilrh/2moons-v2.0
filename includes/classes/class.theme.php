@@ -14,13 +14,16 @@
  * @version 1.8.0
  * @link https://github.com/jkroepke/2Moons
  */
- 
+
 class Theme
 {
 	static public $Themes;
 	private $THEMESETTINGS;
+	private $skininfo;
+	private $skin;
+	private $customtpls;
 	
-	function __construct()
+	function __construct($install = false)
 	{	
 		$this->skininfo = array();
 		$this->skin		= isset($_SESSION['dpath']) ? $_SESSION['dpath'] : DEFAULT_THEME;

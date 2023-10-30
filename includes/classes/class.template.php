@@ -15,7 +15,7 @@
  * @link https://github.com/jkroepke/2Moons
  */
 
-require('includes/libs/Smarty/Smarty.class.php');
+require('includes/libs/Smarty/libs/Smarty.class.php');
 		
 class template extends Smarty
 {
@@ -31,6 +31,7 @@ class template extends Smarty
 
 	private function smartySettings()
 	{
+
 		require_once './includes/libs/Smarty/libs/plugins/modifier.number_format.php';
 		require_once './includes/libs/Smarty/libs/plugins/modifier.json.php';
 		require_once './includes/libs/Smarty/libs/plugins/modifier.time.php';
@@ -47,7 +48,7 @@ class template extends Smarty
 		$this->setCaching(Smarty::CACHING_LIFETIME_CURRENT);
 		$this->setCompileDir(is_writable(CACHE_PATH) ? CACHE_PATH : $this->getTempPath());
 		$this->setCacheDir($this->getCompileDir().'templates');
-		$this->setTemplateDir('styles/templates/'.$THEME->skininfo["tag"].'');
+		$this->setTemplateDir('styles/templates/');
 		
 	}
 

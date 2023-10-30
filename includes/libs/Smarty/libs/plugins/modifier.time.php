@@ -6,15 +6,14 @@
  * @subpackage PluginsFilter
  */
 /**
- * Smarty htmlspecialchars variablefilter plugin
+ * Smarty time modifier
  *
  * @param string                    $source input string
  * @param \Smarty_Internal_Template $template
  *
  * @return string filtered output
  */
-function smarty_modifier_htmlspecialchars($source)
+function smarty_modifier_time($timeInSeconds)
 {
-
-    return htmlspecialchars($source ?? '');
+    return date('H:i:s',$timeInSeconds);
 }
