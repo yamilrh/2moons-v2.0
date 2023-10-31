@@ -25,4 +25,4 @@
 - Diseño de la página del mercader de recursos
 
 [Thanks] :
-@linkin, @byazrail, @Kaizoku, @noonn
+- @linkin, @byazrail, @Kaizoku, @noonn, @Danter14, @raycogarcia
