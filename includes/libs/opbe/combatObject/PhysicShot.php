@@ -5,7 +5,7 @@
  *  Copyright (C) 2015  Jstar
  *
  * This file is part of OPBE.
- * 
+ *
  * OPBE is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -32,6 +32,7 @@ class PhysicShot
     private $shipType;
     private $damage;
     private $count;
+    private $fighters;
 
     private $assorbedDamage = 0;
     private $bouncedDamage = 0;
@@ -41,7 +42,7 @@ class PhysicShot
 
     /**
      * PhysicShot::__construct()
-     * 
+     *
      * @param ShipType $shipType
      * @param int $damage
      * @param int $count
@@ -56,6 +57,18 @@ class PhysicShot
         if ($count < 0)
             throw new Exception('Negative amount of shots');
         $this->fighters = $shipType->cloneMe();
+
+
+        $count_battle = min($count, 100);
+        $damage = rand((int) ($damage - (1/$count_battle * $damage)), (int) ($damage + (1/$count_battle * $damage)));
+
+        if($GLOBALS['round']==1) { $damage = $damage*1.20; }
+        else if($GLOBALS['round']==2) {}
+        else if($GLOBALS['round']==3) { $damage = $damage*0.30; }
+        else if($GLOBALS['round']==4) { $damage = $damage*0.25; }
+        else if($GLOBALS['round']==5) { $damage = $damage*0.60; }
+        else { $damage = $damage*0.50;}
+
         $this->damage = $damage;
         $this->count = $count;
     }
@@ -122,19 +135,19 @@ class PhysicShot
      * @return
      */
     public function start()
-    {     
+    {
         $this->bounce();
         $this->assorb();
         $this->inflict();
     }
-    
-    
+
+
     /**
      * PhysicShot::bounce()
      * If the shield is disabled, then bounced damaged is zero.
-     * If the damage is exactly a multipler of the needed to destroy one shield's cell then bounced damage is zero. 
+     * If the damage is exactly a multipler of the needed to destroy one shield's cell then bounced damage is zero.
      * If damage is more than shield,then bounced damage is zero.
-     * 
+     *
      * @param int $currentCellsCount
      * @param int $cellsDestroyedInOneShot
      * @param float $bouncedDamageForOneShot

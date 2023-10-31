@@ -82,7 +82,7 @@ class Gauss
             $i++;
             if ($i > 10)
             {
-                return mt_rand((int) $min, (int) $max);
+                return mt_rand($min, $max);
             }
         }
     }

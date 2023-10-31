@@ -5,7 +5,7 @@
  *  Copyright (C) 2015  Jstar
  *
  * This file is part of OPBE.
- * 
+ *
  * OPBE is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -34,9 +34,10 @@ class ShipsCleaner
 
     private $exploded;
     private $remainLife;
+    private $fighters;
     /**
      * ShipsCleaner::__construct()
-     * 
+     *
      * @param mixed $shipType
      * @param int $lastShipHit
      * @param int $lastShot
@@ -72,15 +73,23 @@ class ShipsCleaner
             throw new Exception("Negative prob");
         }
         //if most of ships are hitten,then we can apply the more realistic way
-        if ($prob < MIN_PROB_TO_EXPLODE)
+        if (USE_BIEXPLOSION_SYSTEM && $this->lastShipHit >= $this->fighters->getCount() / PROB_TO_REAL_MAGIC)
         {
-            log_comment('lastShipHit smaller than getCount()/magic');
-            $probToExplode = $prob * (1 - MIN_PROB_TO_EXPLODE);
+            log_comment('lastShipHit bigger than getCount()/magic');
+            if ($prob < MIN_PROB_TO_EXPLODE)
+            {
+                $probToExplode = 0;
+            }
+            else
+            {
+                $probToExplode = $prob;
+            }
         }
+        //otherwise  statistically:
         else
         {
             log_comment('lastShipHit smaller than getCount()/magic');
-            $probToExplode = $prob;
+            $probToExplode = $prob * (1 - MIN_PROB_TO_EXPLODE);
         }
 
 
