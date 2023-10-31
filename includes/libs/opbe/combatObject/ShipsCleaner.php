@@ -72,23 +72,15 @@ class ShipsCleaner
             throw new Exception("Negative prob");
         }
         //if most of ships are hitten,then we can apply the more realistic way
-        if (USE_BIEXPLOSION_SYSTEM && $this->lastShipHit >= $this->fighters->getCount() / PROB_TO_REAL_MAGIC)
-        {
-            log_comment('lastShipHit bigger than getCount()/magic');
-            if ($prob < MIN_PROB_TO_EXPLODE)
-            {
-                $probToExplode = 0;
-            }
-            else
-            {
-                $probToExplode = $prob;
-            }
-        }
-        //otherwise  statistically:
-        else
+        if ($prob < MIN_PROB_TO_EXPLODE)
         {
             log_comment('lastShipHit smaller than getCount()/magic');
             $probToExplode = $prob * (1 - MIN_PROB_TO_EXPLODE);
+        }
+        else
+        {
+            log_comment('lastShipHit smaller than getCount()/magic');
+            $probToExplode = $prob;
         }
 
 
