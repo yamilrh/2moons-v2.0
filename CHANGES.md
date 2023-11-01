@@ -9,6 +9,7 @@
 - DEPRECATED: "Creation of dynamic property statbuilder::$starttime" by PHP 8.2.x
 - DEPRECATED: "Creation of dynamic property Theme::$skininfo" by PHP 8.2.x
 - DEPRECATED: Function strftime() and strftime() by PHP 8.1.x
+- Actualizado Engine de Base Datos
 
 [Bugs] :
 - Corregido error al intercambiar recursos con el mercader
@@ -19,6 +20,8 @@
 - Corregido error que provocaba que mostraba el tiempo de los edificios, investigaciones, naves, defensa, oficiales, bonos temporales de forma incorrecta by Smarty 4.3.2
 - Corregido error que muestras duplicadas las alianzas en las estadísticas by @noonn
 - Corregido un error de vulnerabilidad / Cross-Site Scripting(XSS) Vulnerability
+- Corregido error de deuterio infinito
+- Corregido error al crear rangos de alianzas
 
 [Design] :
 - Diseño de la página de instalación
