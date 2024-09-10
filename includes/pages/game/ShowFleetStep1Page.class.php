@@ -26,7 +26,7 @@ class ShowFleetStep1Page extends AbstractGamePage
 	
 	public function show()
 	{
-		global $USER, $PLANET, $pricelist, $reslist, $LNG;
+		global $USER, $PLANET, $pricelist, $reslist, $resource, $LNG;
 		
 		$targetGalaxy 			= HTTP::_GP('galaxy', (int) $PLANET['galaxy']);
 		$targetSystem 			= HTTP::_GP('system', (int) $PLANET['system']);
